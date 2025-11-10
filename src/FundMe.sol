@@ -20,7 +20,7 @@ contract FundMe {
 
     constructor(address priceFeed) {
         i_owner = msg.sender;
-        s_priceFeed = priceFeed;
+        s_priceFeed = AggregatorV3Interface(priceFeed);
     }
 
     function fund() public payable {
@@ -34,7 +34,7 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        if (msg.sender != i_owner) revert NotOwner();
+        if (msg.sender != i_owner) revert FundMe__NotOwner();
         _;
     }
 
