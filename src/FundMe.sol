@@ -56,7 +56,7 @@ contract FundMe {
         require(callSuccess, "Call failed");
     }
 
-        function cheaperWithdraw() public onlyOwner {
+    function cheaperWithdraw() public onlyOwner {
         uint256 fundersLength = s_funders.length;
 
         for (uint256 funderIndex = 0; funderIndex < fundersLength; funderIndex++) {
